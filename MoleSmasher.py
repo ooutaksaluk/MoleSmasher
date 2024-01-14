@@ -74,9 +74,13 @@ class MyButtonGrid(GridLayout):
             if self.sound:
                 self.sound.play()  # เล่นเสียง
             self.clear_button(instance, 0)
-    def volume_press(self):
+    def volume_press(self,instance):
         if self.volume == 1.9:
             self.volume = 0
+        elif self.volume == 0:
+            self.volume = 1.9
+        self.sound.volume = self.volume  # ตั้งค่าระดับเสียง
+        instance.text = f'Volume: {self.volume}'  # แสดงค่าระดับเสียงใหม่ที่ปุ่ม
 
 class MyApp(App):
     def build(self):
