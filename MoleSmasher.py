@@ -39,12 +39,12 @@ class MyButtonGrid(GridLayout):
         available_buttons = [b for b in self.buttons if b.text == '']
         if available_buttons:
             random_button = random.choice(available_buttons)
-            random_button.text = 'Mole'
+            random_button.add_widget(self.mole_image) 
             Clock.schedule_once(partial(self.clear_button, random_button), 2)
     
     def clear_button(self, button, dt):
-        if button.text == 'Mole':
-            button.text = ''
+        button.remove_widget(self.mole_image)
+        button.text = ''
 
     def show_time(self, dt):
         self.time -= 1
@@ -59,10 +59,15 @@ class MyButtonGrid(GridLayout):
     
     # ลบปุ่มที่ถูกคลิก
     def on_button_press(self, instance):
-        if instance.text == 'Mole':
+        if instance.text == '':
+            return  # อย่างน้อยต้องมีปุ่มที่สามารถกดได้
+
+        if self.mole_image in instance.children:
             self.score += 1
             self.score_label.text = f'Score: {self.score}'
-        instance.text = ''
+            if self.sound:
+                self.sound.play()  # เล่นเสียง
+            self.clear_button(instance, 0)
 
 class MyApp(App):
     def build(self):
