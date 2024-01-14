@@ -59,8 +59,6 @@ class MyButtonGrid(GridLayout):
     
     # ลบปุ่มที่ถูกคลิก
     def on_button_press(self, instance):
-        if instance.text == '':
-            return 
 
         if instance.background_normal == self.mole_image.source:
             self.score += 1
