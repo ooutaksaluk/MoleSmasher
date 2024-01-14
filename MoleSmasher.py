@@ -6,6 +6,7 @@ from kivy.uix.label import Label
 from kivy.clock import Clock
 import random
 from functools import partial
+from kivy.uix.image import Image
 
 class MyButtonGrid(GridLayout):
     def __init__(self, **kwargs):
@@ -23,6 +24,9 @@ class MyButtonGrid(GridLayout):
         self.add_widget(self.score_label)  # เพิ่ม Label เข้าไปใน Grid Layout
         self.time_label = Label(text=f'Time: {self.time}', font_size=20)
         self.add_widget(self.time_label)
+
+        # Load รูปภาพ
+        self.mole_image = Image(source='C:/Users/ADMIN/Desktop/nope/mole')
 
     def create_buttons(self):
         for i in range(9):
