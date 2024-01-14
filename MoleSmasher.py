@@ -50,7 +50,7 @@ class MyButtonGrid(GridLayout):
 
     def game_over(self):
         self.clear_widgets()  # ลบทุก Widget ทิ้ง
-        game_over_label = Label(text='Game Over\nScore: {self.score}', font_size=40)
+        game_over_label = Label(text=f'Game Over\nScore: {self.score_label}', font_size=40) # แสดง game over และ คะแนนที่ได้เมื่อจบเกม
         self.add_widget(game_over_label)
     
     # ลบปุ่มที่ถูกคลิก
