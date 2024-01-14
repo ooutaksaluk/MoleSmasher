@@ -7,6 +7,7 @@ from kivy.clock import Clock
 import random
 from functools import partial
 from kivy.uix.image import Image
+from kivy.core.audio import SoundLoader
 
 class MyButtonGrid(GridLayout):
     def __init__(self, **kwargs):
