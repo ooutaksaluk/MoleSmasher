@@ -17,6 +17,7 @@ class MyButtonGrid(GridLayout):
 
         self.create_buttons()
         Clock.schedule_interval(self.create_random_button, random.uniform(1,2))  # สุ่มสร้างปุ่มทุก 1 - 2 วินาที
+        Clock.schedule_interval(self.show_time,1)
 
         self.score_label = Label(text=f'Score: {self.score}', font_size=20)
         self.add_widget(self.score_label)  # เพิ่ม Label เข้าไปใน Grid Layout
@@ -40,6 +41,12 @@ class MyButtonGrid(GridLayout):
     def clear_button(self, button, dt):
         if button.text == 'Mole':
             button.text = ''
+
+    def show_time(self):
+        self.score -= 1
+        self.remove_widget(self.time_label)  # ลบ Label ทิ้ง
+        self.score_label = Label(text=f'Score: {self.time}', font_size=20)  # สร้าง Label ใหม่
+        self.add_widget(self.time_label)  # เพิ่ม Label เข้าไปใน Grid Layout
     
 
     # ลบปุ่มที่ถูกคลิก
