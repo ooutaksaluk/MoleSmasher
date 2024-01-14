@@ -5,6 +5,7 @@ from kivy.uix.button import Button
 from kivy.uix.label import Label
 from kivy.clock import Clock
 import random
+from functools import partial
 
 class MyButtonGrid(GridLayout):
     def __init__(self, **kwargs):
@@ -31,6 +32,11 @@ class MyButtonGrid(GridLayout):
         if available_buttons:
             random_button = random.choice(available_buttons)
             random_button.text = 'Mole'
+            Clock.schedule_once(partial(self.clear_button, random_button), 2)
+    
+    def clear_button(self, button, dt):
+        if button.text == 'Mole':
+            button.text = ''
 
     # ลบปุ่มที่ถูกคลิก
     def on_button_press(self, instance):
