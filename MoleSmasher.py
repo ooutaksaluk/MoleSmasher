@@ -66,6 +66,8 @@ class MyButtonGrid(GridLayout):
         if instance.background_normal == self.mole_image.source:
             self.score += 1
             self.score_label.text = f'Score: {self.score}'
+            if self.sound:
+                self.sound.play()  # เล่นเสียง
             self.clear_button(instance, 0)
 
 class MyApp(App):
