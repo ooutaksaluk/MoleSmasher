@@ -13,7 +13,7 @@ class MyButtonGrid(GridLayout):
         self.cols = 3
         self.buttons = []
         self.score = 0
-        self.time= 60
+        self.time= 3
 
         self.create_buttons()
         Clock.schedule_interval(self.create_random_button, random.uniform(1,2))  # สุ่มสร้างปุ่มทุก 1 - 2 วินาที
@@ -50,7 +50,7 @@ class MyButtonGrid(GridLayout):
 
     def game_over(self):
         self.clear_widgets()  # ลบทุก Widget ทิ้ง
-        game_over_label = Label(text='Game Over', font_size=40)
+        game_over_label = Label(text='Game Over\nScore: {self.score}', font_size=40)
         self.add_widget(game_over_label)
     
     # ลบปุ่มที่ถูกคลิก
