@@ -27,7 +27,7 @@ class MyButtonGrid(GridLayout):
         self.add_widget(self.time_label)
 
         # Load เสียง
-        self.sound = SoundLoader.load('C:/Users/ADMIN/Desktop/nope/Metal20Pipes20Falling20Sound') 
+        self.sound = SoundLoader.load('C:/Users/ADMIN/Desktop/nope/Metal20Pipes20Falling20Sound.mp3') 
         # Load รูปภาพ
         self.mole_image = Image(source='C:/Users/ADMIN/Desktop/nope/mole.jpg', size=(100, 100))
 
