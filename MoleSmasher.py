@@ -16,6 +16,7 @@ class MyButtonGrid(GridLayout):
         self.buttons = []
         self.score = 0
         self.time = 60
+        self.volume = self.sound.volume 
 
         self.create_buttons()
         Clock.schedule_interval(self.create_random_button, random.uniform(1,2))  # สุ่มสร้างปุ่มทุก 1 - 2 วินาที
@@ -25,7 +26,7 @@ class MyButtonGrid(GridLayout):
         self.add_widget(self.score_label)  # เพิ่ม Label เข้าไปใน Grid Layout
         self.time_label = Label(text=f'Time: {self.time}', font_size=20)
         self.add_widget(self.time_label)
-        self.sound_button = Button(text=f'Volume: {self.sound.volume}', on_press=self.on_button_press)
+        self.sound_button = Button(text=f'Volume: {self.volume}', on_press=self.on_button_press)
         self.add_widget(self.sound_button)
 
         # Load เสียง
