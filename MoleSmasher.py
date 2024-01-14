@@ -26,7 +26,7 @@ class MyButtonGrid(GridLayout):
         self.add_widget(self.score_label)  # เพิ่ม Label เข้าไปใน Grid Layout
         self.time_label = Label(text=f'Time: {self.time}', font_size=20)
         self.add_widget(self.time_label)
-        self.sound_button = Button(text='Volume: {self.volume}', on_press=self.on_button_press)
+        self.sound_button = Button(text=f'Volume: {self.volume}', on_press=self.on_button_press)
         self.add_widget(self.sound_button)
 
         # Load เสียง
