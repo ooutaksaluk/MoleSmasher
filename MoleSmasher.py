@@ -31,6 +31,8 @@ class MyButtonGrid(GridLayout):
         # Load รูปภาพ
         self.mole_image = Image(source='C:/Users/ADMIN/Desktop/nope/mole.jpg', size=(100, 100))
 
+        self.sound.volume = 1.9
+
     def create_buttons(self):
         for i in range(9):
             button = Button(text='', on_press=self.on_button_press)
