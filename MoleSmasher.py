@@ -16,7 +16,7 @@ class MyButtonGrid(GridLayout):
         self.buttons = []
         self.score = 0
         self.time = 60
-        self.volume = self.sound.volume 
+        self.volume = 1.9
 
         self.create_buttons()
         Clock.schedule_interval(self.create_random_button, random.uniform(1,2))  # สุ่มสร้างปุ่มทุก 1 - 2 วินาที
@@ -74,12 +74,13 @@ class MyButtonGrid(GridLayout):
             if self.sound:
                 self.sound.play()  # เล่นเสียง
             self.clear_button(instance, 0)
-    def volume_press(self):
+    def volume_press(self, instance):
         if self.sound.volume == 1.9:
             self.sound.volume = 0
         elif self.sound.volume < 1.9:
             self.sound.volume += 0.1
-
+        print(f"Current Volume: {self.sound.volume}")
+        instance.text = f'Volume: {int(self.sound.volume * 10)}'  # แสดงค่าระดับเสียงใหม่ที่ปุ่ม
 class MyApp(App):
     def build(self):
         return MyButtonGrid()
