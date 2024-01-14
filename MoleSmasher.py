@@ -13,7 +13,7 @@ class MyButtonGrid(GridLayout):
         self.cols = 3
         self.buttons = []
         self.score = 0
-        self.time=60
+        self.time=3
 
         self.create_buttons()
         Clock.schedule_interval(self.create_random_button, random.uniform(1,2))  # สุ่มสร้างปุ่มทุก 1 - 2 วินาที
@@ -42,20 +42,22 @@ class MyButtonGrid(GridLayout):
         if button.text == 'Mole':
             button.text = ''
 
-    def show_time(self):
-        self.score -= 1
-        self.remove_widget(self.time_label)  # ลบ Label ทิ้ง
-        self.score_label = Label(text=f'Score: {self.time}', font_size=20)  # สร้าง Label ใหม่
-        self.add_widget(self.time_label)  # เพิ่ม Label เข้าไปใน Grid Layout
+    def show_time(self, dt):
+        self.time -= 1
+        self.time_label.text = f'Time: {self.time}'
+        if self.time == 0:
+            self.game_over()
     
+    def game_over(self):
+        self.clear_widgets()  # ลบทุก Widget ทิ้ง
+        game_over_label = Label(text='Game Over', font_size=40)
+        self.add_widget(game_over_label)
 
     # ลบปุ่มที่ถูกคลิก
     def on_button_press(self, instance):
         if instance.text == 'Mole':
             self.score += 1
-            self.remove_widget(self.score_label)  # ลบ Label ทิ้ง
-            self.score_label = Label(text=f'Score: {self.score}', font_size=20)  # สร้าง Label ใหม่
-            self.add_widget(self.score_label)  # เพิ่ม Label เข้าไปใน Grid Layout
+            self.score_label.text = f'Score: {self.score}'
         instance.text = ''
 
 class MyApp(App):
