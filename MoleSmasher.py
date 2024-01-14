@@ -38,7 +38,7 @@ class MyButtonGrid(GridLayout):
 
     def create_buttons(self):
         for i in range(9):
-            button = Button(text='', on_press=self.on_button_press)
+            button = Button(text='', on_press=self.volume_press)
             self.buttons.append(button)
             self.add_widget(button)
 
@@ -74,6 +74,9 @@ class MyButtonGrid(GridLayout):
             if self.sound:
                 self.sound.play()  # เล่นเสียง
             self.clear_button(instance, 0)
+    def volume_press(self):
+        if self.volume == 1.9:
+            self.volume = 0
 
 class MyApp(App):
     def build(self):
