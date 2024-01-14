@@ -14,7 +14,7 @@ class MyButtonGrid(GridLayout):
         self.score = 0
 
         self.create_buttons()
-        Clock.schedule_interval(self.create_random_button, 1.5)  # สร้างปุ่มทุก 1.5 วินาที
+        Clock.schedule_interval(self.create_random_button, random.uniform(1,2))  # สุ่มสร้างปุ่มทุก 1 - 2 วินาที
 
         self.score_label = Label(text=f'Score: {self.score}', font_size=20)
         self.add_widget(self.score_label)  # เพิ่ม Label เข้าไปใน Grid Layout
