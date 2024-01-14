@@ -77,8 +77,8 @@ class MyButtonGrid(GridLayout):
     def volume_press(self):
         if self.sound.volume == 1.9:
             self.sound.volume = 0
-        elif self.sound.volume == 0:
-            self.sound.volume = 1.9
+        elif self.sound.volume < 1.9:
+            self.sound.volume += 0.1
 
 class MyApp(App):
     def build(self):
